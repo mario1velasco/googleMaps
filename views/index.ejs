@@ -1,0 +1,30 @@
+<section class="container">
+  <article>
+    <div id="map"></div>
+  </article>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="start" class="col-sm-2 control-label">Origen:</label>
+      <div class="col-sm-10">
+        <select id="start" class="form-control" onchange="calcRoute();">
+          <option value="terminal1">Terminal 1</option>
+          <option value="terminal2">Terminal 2</option>
+          <option value="terminal3">Terminal 3</option>
+          <option value="terminal4">Terminal 4</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="destination" class="col-sm-2 control-label">Destino</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="destination" placeholder="Password" value="madrid, es" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button class="btn btn-default">Calcular</button>
+      </div>
+    </div>
+  </form>
+
+</section>
