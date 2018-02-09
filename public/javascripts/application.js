@@ -28,7 +28,10 @@ $(document).ready(() => {
       },
     };
     const numTerminal = $('#start').val();
-    mapsAPI.myRoute(terminalCoordinates[numTerminal]);
+    
+    const travelMode = $('#travelMode').val();
+    
+    mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase());
   });
 });
 

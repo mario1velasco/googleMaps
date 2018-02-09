@@ -24,12 +24,16 @@ class APIMaps {
   }
 
 
-  myRoute(origin) {
+  myRoute(origin, travelMode) {
     var directionRequest = {
       origin: origin,
-      destination: 'Madrid, es',
-      travelMode: 'DRIVING'
+      destination: {
+        lat: 40.417115,
+        lng: -3.7032147
+      },
+      travelMode: travelMode
     };
+
 
     this.directionsService.route(
       directionRequest,
@@ -47,7 +51,8 @@ class APIMaps {
     );
   }
 
-  showTimeAndDistance(response){
+  showTimeAndDistance(response) {
+    $('#show-Time-Duration').empty();
     $('#show-Time-Duration').append(`
     <label for="destination" class="col-sm-2 control-label">Distance</label>
     <div class="col-sm-4">
