@@ -6,10 +6,32 @@ function startMap() {
 }
 
 $(document).ready(() => {
-
+  $('#form-routes').on('submit', (event) => {
+    event.preventDefault();
+    
+    const terminalCoordinates = {
+      terminal1: {
+        lat: 40.462832,
+        lng: -3.571883
+      },
+      terminal2: {
+        lat: 40.466766,
+        lng: -3.572055
+      },
+      terminal3: {
+        lat: 40.468686,
+        lng: -3.569172
+      },
+      terminal4: {
+        lat: 40.491820,
+        lng: -3.593276
+      },
+    };
+    const numTerminal = $('#start').val();
+    // terminalCoordinates[numTerminal];
+    mapsAPI.myRoute(terminalCoordinates[numTerminal]);
+  });
 });
-
-
 
 
 
