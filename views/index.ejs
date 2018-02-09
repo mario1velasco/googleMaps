@@ -5,7 +5,7 @@
   <form class="form-horizontal" id="form-routes">
     <div class="form-group">
       <label for="start" class="col-sm-2 control-label">Origen:</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <select id="start" class="form-control" onchange="calcRoute();">
           <option value="terminal1">Terminal 1</option>
           <option value="terminal2">Terminal 2</option>
@@ -13,17 +13,27 @@
           <option value="terminal4">Terminal 4</option>
         </select>
       </div>
+      <label for="start" class="col-sm-2 control-label">Mode:</label>
+      <div class="col-sm-4">
+        <select id="start" class="form-control" onchange="calcRoute();">
+          <option value="driving">Driving</option>
+          <option value="bicycling">Bicycling</option>
+          <option value="transit">Transit</option>
+          <option value="walking">Walking</option>
+        </select>
+      </div>
     </div>
     <div class="form-group">
       <label for="destination" class="col-sm-2 control-label">Destino</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="destination" placeholder="Password" value="madrid, es" readonly>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="destination" value="madrid, es" readonly>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2 col-sm-4">
         <button class="btn btn-default">Calcular</button>
       </div>
+    </div>
+    <div class="form-group" id="show-Time-Duration">
+
     </div>
   </form>
 

@@ -28,7 +28,6 @@ $(document).ready(() => {
       },
     };
     const numTerminal = $('#start').val();
-    // terminalCoordinates[numTerminal];
     mapsAPI.myRoute(terminalCoordinates[numTerminal]);
   });
 });

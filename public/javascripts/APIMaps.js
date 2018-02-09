@@ -8,50 +8,56 @@ class APIMaps {
   startMap() {
     this.map = new google.maps.Map(
       document.getElementById('map'), {
-        zoom: 15,
+        zoom: 12,
         center: {
-          lat: 41.3977381,
-          lng: 2.190471916
+          lat: 40.39254,
+          lng: -3.698624
         }
       }
     );
-    // this.myMarker(ironhackBCN.lat, ironhackBCN.lng);
-    // this.getPosition(this.map, this.currentMarker);
-
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
+
+    // this.myMarker(ironhackBCN.lat, ironhackBCN.lng);
+    // this.getPosition(this.map, this.currentMarker);
     // this.myRoute();
   }
-  
+
 
   myRoute(origin) {
     var directionRequest = {
-      origin: origin,// { lat: 41.3977381, lng: 2.190471916},
+      origin: origin,
       destination: 'Madrid, es',
       travelMode: 'DRIVING'
     };
 
     this.directionsService.route(
       directionRequest,
-       (response, status)=> {
+      (response, status) => {
         if (status === 'OK') {
           // everything is ok
           this.directionsDisplay.setDirections(response);
+          this.showTimeAndDistance(response);
           this.directionsDisplay.setMap(this.map);
         } else {
           // something went wrong
           window.alert('Directions request failed due to ' + status);
         }
-      }//.bind(this)
+      } //.bind(this)
     );
   }
 
-      
-    //t1 40.462832, -3.571883
-    //t2 40.466766, -3.572055
-    //t3 40.468686, -3.569172
-    //t4 40.491820, -3.5932760
-
+  showTimeAndDistance(response){
+    $('#show-Time-Duration').append(`
+    <label for="destination" class="col-sm-2 control-label">Distance</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="destination" value="${response.routes[0].legs[0].distance.text}" readonly>
+    </div>
+    <label for="destination" class="col-sm-2 control-label">Duration</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="destination" value="${response.routes[0].legs[0].duration.text}" readonly>
+    </div>`);
+  }
   // getPosition(map, currentMarker) {
   //   google.maps.event.addListener(map, "click", function (e) {
   //     currentMarker.setMap(null);
