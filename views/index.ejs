@@ -2,6 +2,7 @@
   <article>
     <div id="map"></div>
   </article>
+
   <form class="form-horizontal" id="form-routes">
     <div class="form-group">
       <label for="start" class="col-sm-2 control-label">Origen:</label>
@@ -24,12 +25,21 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="destination" class="col-sm-2 control-label">Destino</label>
+      <label for="destination" class="col-sm-2 control-label">Destino:</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="destination" value="madrid, es" readonly>
       </div>
-      <div class="col-sm-offset-2 col-sm-4">
-        <button class="btn btn-default">Calcular</button>
+      <label for="calendar" class="col-sm-2 control-label">Date:</label>
+      <div class="input-append date form_datetime col-sm-4">
+        <input size="16" type="text" value="" class="form-control" id="calendar" readonly>
+        <span class="add-on">
+          <i class="icon-calendar"></i>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-6 col-sm-4">
+        <button class="btn btn-info">Calcular</button>
       </div>
     </div>
     <div class="form-group" id="show-Time-Duration">
@@ -38,3 +48,10 @@
   </form>
 
 </section>
+<script type="text/javascript">
+  $(".form_datetime").datetimepicker({
+    format: "yyyy-mm-dd hh:ii:ss",
+    autoclose: true,
+    todayBtn: true
+  });
+</script>

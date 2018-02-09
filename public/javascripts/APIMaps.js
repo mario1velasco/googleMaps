@@ -24,22 +24,25 @@ class APIMaps {
   }
 
 
-  myRoute(origin, travelMode) {
+  myRoute(origin, travelMode, selectDay) {
     var directionRequest = {
       origin: origin,
       destination: {
         lat: 40.417115,
         lng: -3.7032147
       },
-      travelMode: travelMode
+      travelMode: travelMode,
+      transitOptions: {
+        departureTime: new Date(selectDay)
+      }
     };
-
 
     this.directionsService.route(
       directionRequest,
       (response, status) => {
         if (status === 'OK') {
           // everything is ok
+          // debugger
           this.directionsDisplay.setDirections(response);
           this.showTimeAndDistance(response);
           this.directionsDisplay.setMap(this.map);

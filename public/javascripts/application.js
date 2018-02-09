@@ -27,11 +27,15 @@ $(document).ready(() => {
         lng: -3.593276
       },
     };
-    const numTerminal = $('#start').val();
-    
+    const numTerminal = $('#start').val();    
     const travelMode = $('#travelMode').val();
+    const selectDay =$('#calendar').val();
+    if(selectDay){
+      mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase(), Date.parse(selectDay));
+    }else{
+      mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase());
+    }
     
-    mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase());
   });
 });
 
