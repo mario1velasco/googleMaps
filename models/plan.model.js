@@ -15,11 +15,11 @@ const planSchema = new mongoose.Schema({
     type: String,
     default: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
   },
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: [true, 'Creator is required'],
-    ref: 'User'
-  },
+  // createdBy: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   required: [true, 'Creator is required'],
+  //   ref: 'User'
+  // },
   sunny: {
     type: Boolean,
     default: true
@@ -33,12 +33,16 @@ const planSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Duration time is required']
   },
+  days:{
+    type: String,
+    required: [true, 'Days time is required']
+  },
   startTime: {
-    type: Date,
+    type: String,
     required: [true, 'Start time is required']
   },
   endTime: {
-    type: Date,
+    type: String,
     required: [true, 'End time is required']
   },
   startPosition: {

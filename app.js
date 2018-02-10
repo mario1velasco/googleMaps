@@ -9,6 +9,8 @@ const expressLayout = require('express-ejs-layouts');
 var index = require('./routes/index.routes');
 var users = require('./routes/users');
 
+require('./config/db.config');
+
 var app = express();
 
 // view engine setup
