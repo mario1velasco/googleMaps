@@ -20,7 +20,9 @@ const planSchema = new mongoose.Schema({
   //   required: [true, 'Creator is required'],
   //   ref: 'User'
   // },
-  sunny: {
+
+  //true = sunny
+  weather: {
     type: Boolean,
     default: true
   },

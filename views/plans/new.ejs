@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="page-header">
+        <h1>My plan:
+          <small>Here you can create a plan</small>
+        </h1>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <form action="/plans/new" method="POST">
+        <div class="form-group <%= typeof error != 'undefined' && error.title ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.title ? plan.title : '' %>" name="title" class="form-control" placeholder="Name">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.title) { %>
+            <label class="control-label">
+              <%= error.title %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.imgUrl ? 'has-error' : '' %>">
+          <p>
+            <strong>Paste here the link address:</strong>
+          </p>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.imgUrl ? plan.imgUrl : '' %>" id="inpImgUrl" name="imgUrl" class="form-control" placeholder="Image URL">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.imgUrl) { %>
+            <label class="control-label">
+              <%= error.imgUrl %>
+            </label>
+            <% } %>
+        </div>
+        <img src="" id="imgUrl" alt="" height="100px">
+        <br>
+        <div class="form-group <%= typeof error != 'undefined' && error.description ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.description ? plan.description : '' %>" name="description" class="form-control" placeholder="Description">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.description) { %>
+            <label class="control-label">
+              <%= error.description %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.weather ? 'has-error' : '' %>">
+          <label for="start" class="control-label">Weather:</label>
+          <div>
+            <select class="form-control" name="weather">
+              <option value="true">Sunny</option>
+              <option value="false">Rainy</option>
+            </select>
+          </div>
+          <% if (typeof(error) != 'undefined' && error.weather) { %>
+            <label class="control-label">
+              <%= error.weather %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.price ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.price ? plan.price : '' %>" name="price" class="form-control" placeholder="Price">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.price) { %>
+            <label class="control-label">
+              <%= error.price %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.duration ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.duration ? plan.duration : '' %>" name="duration" class="form-control" placeholder="Duration in minutes">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.duration) { %>
+            <label class="control-label">
+              <%= error.duration %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.days ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.days ? plan.days : '' %>" name="days" class="form-control" placeholder="Days format 1/2/3/4..">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.days) { %>
+            <label class="control-label">
+              <%= error.days %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.startTime ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.startTime ? plan.startTime : '' %>" name="startTime" class="form-control" placeholder="Start time ej: 14:30">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.startTime) { %>
+            <label class="control-label">
+              <%= error.startTime %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.endTime ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.endTime ? plan.endTime : '' %>" name="endTime" class="form-control" placeholder="End time ej:19:00">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.endTime) { %>
+            <label class="control-label">
+              <%= error.endTime %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.startPosition ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.startPosition ? plan.startPosition : '' %>" name="startPosition" class="form-control" placeholder="Start Position {lat: 40.468686, lng: -3.569172}">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.startPosition) { %>
+            <label class="control-label">
+              <%= error.startPosition %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-group <%= typeof error != 'undefined' && error.endPosition ? 'has-error' : '' %>">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="<%= typeof plan != 'undefined' && plan.endPosition ? plan.endPosition : '' %>" name="endPosition" class="form-control" placeholder="End Position {lat: 40.468686, lng: -3.569172}">
+          </div>
+          <% if (typeof(error) != 'undefined' && error.endPosition) { %>
+            <label class="control-label">
+              <%= error.endPosition %>
+            </label>
+            <% } %>
+        </div>
+        <div class="form-actions">
+          <br>
+          <button type="submit" class="btn btn-block btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  var i = 0;
+  $("#inpImgUrl")
+    .change(function () {
+      $("#imgUrl").attr("src", $("#inpImgUrl").val())
+    })
+</script>
