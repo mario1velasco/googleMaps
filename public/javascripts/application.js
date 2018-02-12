@@ -1,4 +1,4 @@
-const mapsAPI = new APIMaps();
+const mapsAPI = new APIMaps("http://localhost:3000");
 // const handlerAPI = new APIHandler("http://localhost:3000");
 
 function startMap() {
@@ -37,8 +37,22 @@ $(document).ready(() => {
     }
     
   });
+  $('#form-search').on('submit', (event) => {
+    event.preventDefault();
+    let initHour=stringfyDateToHoursMin($('#initHour').val());
+    let endHour=stringfyDateToHoursMin($('#endHour').val());
+    mapsAPI.getDoSearch();
+  });
 });
-
+//return an array the first position the hour the snd minutes
+function stringfyDateToHoursMin(myDate){
+  let date=new Date(myDate);
+  let arrayDate=[];
+  arrayDate.push(date.getHours());
+  arrayDate.push(date.getMinutes());
+  console.log(`Hour = ${arrayDate}`);
+  return arrayDate;
+}
 
 
 

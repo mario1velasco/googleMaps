@@ -1,20 +1,33 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="page-header">
-        <h1>My plan:
-          <small>Here you can create a plan</small>
-        </h1>
-      </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <form action="/plans/new" method="POST">
+      <div class="page-header">
+        <h1>My plan:</h1>
+          <%if (plan.isNew){%>
+          <h4>Here you can create a plan</h4>
+          <%}else{%>
+          <h4>Here you can update your plan</h4>
+          <%}%>
+      </div>
+      <% if (plan.isNew) { %>
+        <h2>Creating a new plan</h2>
+        <form action="/plans/new" method="post">
+      <% } else { %>
+        <h2>Updating a new plan</h2>
+        <form action="/plans/<%= plan._id %>" method="post">
+      <% } %>
         <div class="form-group <%= typeof error != 'undefined' && error.title ? 'has-error' : '' %>">
           <div class="input-group">
             <span class="input-group-addon">
               <i class="fa fa-envelope"></i>
             </span>
-            <input type="text" value="<%= typeof plan != 'undefined' && plan.title ? plan.title : '' %>" name="title" class="form-control" placeholder="Name">
+            <%if (plan.isNew){%>
+              <input type="text" value="<%= typeof plan != 'undefined' && plan.title ? plan.title : '' %>" name="title" class="form-control" placeholder="Name">
+            <%}else{%>
+              <input type="text" value="<%= typeof plan != 'undefined' && plan.title ? plan.title : '' %>" name="titulo" class="form-control" placeholder="Name" readonly>
+            <%}%>
           </div>
           <% if (typeof(error) != 'undefined' && error.title) { %>
             <label class="control-label">
@@ -160,7 +173,11 @@
         </div>
         <div class="form-actions">
           <br>
+          <%if (plan.isNew){%>
           <button type="submit" class="btn btn-block btn-primary">Create</button>
+          <%}else{%>
+          <button type="submit" class="btn btn-block btn-success">Update</button>
+          <%}%>
         </div>
       </form>
     </div>

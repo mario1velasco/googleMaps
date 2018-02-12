@@ -1,5 +1,6 @@
 class APIMaps {
-  constructor() {
+  constructor(baseUrl) {
+    this.BASE_URL = baseUrl;
     this.map;
     this.currentMarker;
     this.directionsService;
@@ -65,6 +66,18 @@ class APIMaps {
     <div class="col-sm-4">
       <input type="text" class="form-control" id="destination" value="${response.routes[0].legs[0].duration.text}" readonly>
     </div>`);
+  }
+
+  getDoSearch() {
+    $("#olResult").empty();
+    axios.get(this.BASE_URL + '/doSearch')
+      .then(function (response) {
+        console.log(response);
+        
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   // getPosition(map, currentMarker) {
   //   google.maps.event.addListener(map, "click", function (e) {
