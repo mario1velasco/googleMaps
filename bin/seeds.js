@@ -10,10 +10,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 22,
-  duration: 100,
-  days:'1/2/3/4/5/6',
-  startTime: "10:00",
-  endTime: "18:00",
+  duration: [1,30],
+  days:[true,true,true,true,true,true,false],
+  startTime: [10,0],
+  endTime: [18,0],
   startPosition: "{40.435277, -3.710721}",
   endPosition: "{40.435277, -3.710721}"
 }, {
@@ -23,10 +23,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 10,
-  duration: 120,
-  days:'1/2/3/4/5',
-  startTime: "12:00",
-  endTime: "18:00",
+  duration: [2,0],
+  days:[true,true,true,true,true,false,false],
+  startTime: [12,0],
+  endTime: [18,0],
   startPosition: "{40.407408, -3.696279}",
   endPosition: "{40.407408, -3.696279}"
 }, {
@@ -36,10 +36,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 3,
-  duration: 100,
-  days:'1/2/3/4/5/6/7',
-  startTime: "19:00",
-  endTime: "3 :00",
+  duration: [1,30],
+  days:[true,true,true,true,true,true,true],
+  startTime: [19,0],
+  endTime: [3,0],
   startPosition: "{40.427777, -3.701890}",
   endPosition: "{40.420238, -3.703017}"
 }, {
@@ -49,10 +49,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 44,
-  duration: 120,
-  days:'2/3/4/5/6/7',
-  startTime: "22:00",
-  endTime: "22:00",
+  duration: [2,0],
+  days:[false,true,true,true,true,true,true],
+  startTime: [22,0],
+  endTime: [22,0],
   startPosition: "{40.421549,-3.7089918}",
   endPosition: "{40.421549,-3.7089918}"
 }, {
@@ -62,10 +62,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: true,
   price: 25,
-  duration: 100,
-  days:'1/2/3/4/5/6/7',
-  startTime: "10:00",
-  endTime: "19:00",
+  duration: [1,30],
+  days:[true,true,true,true,true,true,true],
+  startTime: [10,0],
+  endTime: [19,0],
   startPosition: "{40.4523663,-3.6897446}",
   endPosition: "{40.4523663,-3.6897446}"
 }, {
@@ -75,10 +75,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 19,
-  duration: 90,
-  days:'1/2/3/4/5/6',
-  startTime: "10:00",
-  endTime: "20:00",
+  duration: [1,30],
+  days:[true,true,true,true,true,true,false],
+  startTime: [10,0],
+  endTime: [20,0],
   startPosition: "{40.4249622,-3.6935239}",
   endPosition: "{40.4249622,-3.6935239}"
 }, {
@@ -88,10 +88,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 1300,
-  duration: 360,
-  days:'1/2/3/4/5/6',
-  startTime: "7:00",
-  endTime: "9:00",
+  duration: [6,0],
+  days:[true,true,true,true,true,true,false],
+  startTime: [7,0],
+  endTime: [9,0],
   startPosition: "{40.4137859,-3.6943158}",
   endPosition: "{40.4079164,-3.6967456}"
 }, {
@@ -101,10 +101,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 18,
-  duration: 0,
-  days:'1/2/3/4/5/6/7',
-  startTime: "00:00",
-  endTime: "6:00",
+  duration: [0],
+  days:[true,true,true,true,true,true,true],
+  startTime: [0,0],
+  endTime: [6,0],
   startPosition: "{40.409776,-3.6931638}",
   endPosition: "{40.409776,-3.6931638}"
 }, ];

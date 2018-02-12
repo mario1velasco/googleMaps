@@ -39,8 +39,13 @@ $(document).ready(() => {
   });
   $('#form-search').on('submit', (event) => {
     event.preventDefault();
-    let initHour=stringfyDateToHoursMin($('#initHour').val());
-    let endHour=stringfyDateToHoursMin($('#endHour').val());
+    // let initHour=stringfyDateToHoursMin($('#initHour').val());
+    // let endHour=stringfyDateToHoursMin($('#endHour').val());
+    let initHour=new Date($('#initHour').val());
+    let endHour=new Date($('#endHour').val());
+    console.log(initHour);
+    console.log(endHour);
+    
     mapsAPI.getDoSearch(initHour, endHour);
   });
 });
@@ -52,6 +57,16 @@ function stringfyDateToHoursMin(myDate){
   arrayDate.push(date.getMinutes());
   console.log(`Hour = ${arrayDate}`);
   return arrayDate;
+  // let date = new Date(myDate);
+  // let arrayDate;
+  // if (date.getMinutes() < 10) {
+    
+  //   arrayDate = date.getHours() + ':0' + date.getMinutes() + ':00';
+  // } else {
+  //   arrayDate = date.getHours() + ':' + date.getMinutes() + ':00';
+  // }
+  // console.log(`Hour = ${arrayDate}`);
+  // return arrayDate;
 }
 
 
