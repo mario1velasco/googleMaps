@@ -7,10 +7,19 @@ module.exports.search = (req, res, next) => {
     res.render("search");
 };
 module.exports.doSearch = (req, res, next) => {
+    const {
+        initHour,
+        endHour
+    } = req.body;
+    console.log(endHour);
+    
+    Plan.find()
+        .then(plans => {
+            res.json({
+                plans
+            });
 
-    res.json({
-        hola: {
-            Nombre:'Hicimos una peticion get'
-        }
-    });
+
+        })
+        .catch(error => next(error));
 };

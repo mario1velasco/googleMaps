@@ -41,7 +41,7 @@ $(document).ready(() => {
     event.preventDefault();
     let initHour=stringfyDateToHoursMin($('#initHour').val());
     let endHour=stringfyDateToHoursMin($('#endHour').val());
-    mapsAPI.getDoSearch();
+    mapsAPI.getDoSearch(initHour, endHour);
   });
 });
 //return an array the first position the hour the snd minutes

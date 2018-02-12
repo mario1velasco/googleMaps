@@ -68,9 +68,11 @@ class APIMaps {
     </div>`);
   }
 
-  getDoSearch() {
-    $("#olResult").empty();
-    axios.get(this.BASE_URL + '/doSearch')
+  getDoSearch(initHour, endHour) {
+    axios.post(this.BASE_URL + '/doSearch', {
+        initHour,
+        endHour
+      })
       .then(function (response) {
         console.log(response);
         
