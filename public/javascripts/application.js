@@ -43,8 +43,9 @@ $(document).ready(() => {
     // let endHour=stringfyDateToHoursMin($('#endHour').val());
     let initHour=new Date($('#initHour').val());
     let endHour=new Date($('#endHour').val());
-    console.log(initHour);
-    console.log(endHour);
+
+    // console.log(initHour.getUTCDay());
+    // console.log(endHour.getUTCDay());
     
     mapsAPI.getDoSearch(initHour, endHour);
   });
@@ -52,6 +53,8 @@ $(document).ready(() => {
 //return an array the first position the hour the snd minutes
 function stringfyDateToHoursMin(myDate){
   let date=new Date(myDate);
+  console.log(date.getUTCDay());
+  
   let arrayDate=[];
   arrayDate.push(date.getHours());
   arrayDate.push(date.getMinutes());

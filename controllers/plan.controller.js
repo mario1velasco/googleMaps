@@ -77,7 +77,12 @@ module.exports.update = (req, res, next) => {
 
 module.exports.doUpdate = (req, res, next) => {
   const plan = new Plan(req.body);
+  plan._id=req.params.id;
+  const id = req.params.id;
   (plan.weather === "sunny") ? plan.weather = true: false;
+  console.log(plan);
+  console.log(req.params.id);
+  
   if ( !plan.description || !plan.imgUrl || !plan.price || !plan.duration || !plan.days || !plan.startTime || !plan.endTime || !plan.startPosition || !plan.endPosition) {
     const description = plan.description ? '' : 'description is required';
     const imgUrl = plan.imgUrl ? '' : 'imgUrl is required';
@@ -88,40 +93,29 @@ module.exports.doUpdate = (req, res, next) => {
     const endTime = plan.endTime ? '' : 'End Time is required';
     const startPosition = plan.startPosition ? '' : 'Start position is required';
     const endPosition = plan.endPosition ? '' : 'End position is required';
-    res.render('plans/new', {
-      error: {
-        description,
-        imgUrl,
-        price,
-        duration,
-        days,
-        startTime,
-        endTime,
-        startPosition,
-        endPosition
-      },
-      plan
-    });
-  } 
-
-  const id = req.params.id;
-  Plan.findById(id)
-    .then((plan) => {
-      plan.save()
-        .then(() => {
-          res.redirect('/plans');
-        }).catch(error => {
-          if (error instanceof mongoose.Error.ValidationError) {
-            res.render('plans/new', {
-              plan: plan,
-              error: error.errors
-            });
-          } else {
-            next(error);
-          }
-        })
-        .catch(error => next(error));
+    Plan.findById(id)
+    .then((planB) => {
+      res.render('plans/new', {
+        error: {
+          description,
+          imgUrl,
+          price,
+          duration,
+          days,
+          startTime,
+          endTime,
+          startPosition,
+          endPosition
+        },
+        plan:planB
+      });
     })
     .catch(error => next(error));
-
+  }   
+  // const plan = new Plan(req.body);
+    Plan.findByIdAndUpdate(id, plan)
+      .then(plan => {
+        res.redirect('/plans');
+      })
+      .catch(error => next(error));
 };

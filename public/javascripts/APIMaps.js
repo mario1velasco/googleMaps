@@ -69,6 +69,9 @@ class APIMaps {
   }
 
   getDoSearch(initHour, endHour) {
+    console.log(initHour);
+    console.log(endHour);
+    
     axios.post(this.BASE_URL + '/doSearch', {
         initHour,
         endHour
