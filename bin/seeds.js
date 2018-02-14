@@ -52,7 +52,7 @@ const plans = [{
   duration: 2,
   days:[false,true,true,true,true,true,true],
   startTime: 22,
-  endTime: 22,
+  endTime: 24,
   startPosition: "{40.421549,-3.7089918}",
   endPosition: "{40.421549,-3.7089918}"
 }, {
