@@ -10,10 +10,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 22,
-  duration: [1,30],
+  duration: 1,
   days:[true,true,true,true,true,true,false],
-  startTime: [10,0],
-  endTime: [18,0],
+  startTime: 10,
+  endTime: 18,
   startPosition: "{40.435277, -3.710721}",
   endPosition: "{40.435277, -3.710721}"
 }, {
@@ -23,10 +23,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 10,
-  duration: [2,0],
+  duration: 2,
   days:[true,true,true,true,true,false,false],
-  startTime: [12,0],
-  endTime: [18,0],
+  startTime: 12,
+  endTime: 18,
   startPosition: "{40.407408, -3.696279}",
   endPosition: "{40.407408, -3.696279}"
 }, {
@@ -36,10 +36,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 3,
-  duration: [1,30],
+  duration: 1,
   days:[true,true,true,true,true,true,true],
-  startTime: [19,0],
-  endTime: [3,0],
+  startTime: 19,
+  endTime: 3,
   startPosition: "{40.427777, -3.701890}",
   endPosition: "{40.420238, -3.703017}"
 }, {
@@ -49,10 +49,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 44,
-  duration: [2,0],
+  duration: 2,
   days:[false,true,true,true,true,true,true],
-  startTime: [22,0],
-  endTime: [22,0],
+  startTime: 22,
+  endTime: 22,
   startPosition: "{40.421549,-3.7089918}",
   endPosition: "{40.421549,-3.7089918}"
 }, {
@@ -62,10 +62,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: true,
   price: 25,
-  duration: [1,30],
+  duration: 1,
   days:[true,true,true,true,true,true,true],
-  startTime: [10,0],
-  endTime: [19,0],
+  startTime: 10,
+  endTime: 19,
   startPosition: "{40.4523663,-3.6897446}",
   endPosition: "{40.4523663,-3.6897446}"
 }, {
@@ -75,10 +75,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 19,
-  duration: [1,30],
+  duration: 1,
   days:[true,true,true,true,true,true,false],
-  startTime: [10,0],
-  endTime: [20,0],
+  startTime: 10,
+  endTime: 20,
   startPosition: "{40.4249622,-3.6935239}",
   endPosition: "{40.4249622,-3.6935239}"
 }, {
@@ -88,10 +88,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 1300,
-  duration: [6,0],
+  duration: 6,
   days:[true,true,true,true,true,true,false],
-  startTime: [7,0],
-  endTime: [9,0],
+  startTime: 7,
+  endTime: 13,
   startPosition: "{40.4137859,-3.6943158}",
   endPosition: "{40.4079164,-3.6967456}"
 }, {
@@ -101,10 +101,10 @@ const plans = [{
   // createdBy: 'Beginner',
   sunny: false,
   price: 18,
-  duration: [0],
+  duration: 1,
   days:[true,true,true,true,true,true,true],
-  startTime: [0,0],
-  endTime: [6,0],
+  startTime: 0,
+  endTime: 6,
   startPosition: "{40.409776,-3.6931638}",
   endPosition: "{40.409776,-3.6931638}"
 }, ];

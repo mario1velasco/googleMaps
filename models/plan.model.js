@@ -32,7 +32,7 @@ const planSchema = new mongoose.Schema({
     default: 0
   },
   duration: {
-    type: [],
+    type: String,
     required: [true, 'Duration time is required']
   },
   days:{
@@ -40,11 +40,11 @@ const planSchema = new mongoose.Schema({
     required: [true, 'Days time is required']
   },
   startTime: {
-    type:[],
+    type:Number,
     required: [true, 'Start time is required']
   },
   endTime: {
-    type: [],
+    type: Number,
     required: [true, 'End time is required']
   },
   startPosition: {

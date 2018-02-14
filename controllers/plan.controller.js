@@ -18,17 +18,17 @@ module.exports.create = (req, res, next) => {
 module.exports.doCreate = (req, res, next) => {
   const plan = new Plan(req.body);
   (plan.weather === "sunny") ? plan.weather = true: false;
-  if (!plan.title || !plan.description || !plan.imgUrl || !plan.price || !plan.duration || !plan.days || !plan.startTime || !plan.endTime || !plan.startPosition || !plan.endPosition) {
-    const title = plan.title ? '' : 'Title is required';
-    const description = plan.description ? '' : 'description is required';
-    const imgUrl = plan.imgUrl ? '' : 'imgUrl is required';
-    const price = plan.price ? '' : 'Price is required';
-    const duration = plan.duration ? '' : 'Duration is required';
-    const days = plan.days ? '' : 'Days is required';
-    const startTime = plan.startTime ? '' : 'Start time is required';
-    const endTime = plan.endTime ? '' : 'End Time is required';
-    const startPosition = plan.startPosition ? '' : 'Start position is required';
-    const endPosition = plan.endPosition ? '' : 'End position is required';
+  if (!req.body.title || !req.body.description || !req.body.imgUrl || !req.body.price || !req.body.duration || !req.body.days || !req.body.startTime || !req.body.endTime || !req.body.startPosition || !req.body.endPosition) {
+    const title = req.body.title ? '' : 'Title is required';
+    const description = req.body.description ? '' : 'description is required';
+    const imgUrl = req.body.imgUrl ? '' : 'imgUrl is required';
+    const price = req.body.price ? '' : 'Price is required';
+    const duration = req.body.duration ? '' : 'Duration is required';
+    const days = req.body.days ? '' : 'Days is required';
+    const startTime = req.body.startTime ? '' : 'Start time is required';
+    const endTime = req.body.endTime ? '' : 'End Time is required';
+    const startPosition = req.body.startPosition ? '' : 'Start position is required';
+    const endPosition = req.body.endPosition ? '' : 'End position is required';
     res.render('plans/new', {
       error: {
         title,
@@ -77,45 +77,44 @@ module.exports.update = (req, res, next) => {
 
 module.exports.doUpdate = (req, res, next) => {
   const plan = new Plan(req.body);
-  plan._id=req.params.id;
+  plan._id = req.params.id;
   const id = req.params.id;
   (plan.weather === "sunny") ? plan.weather = true: false;
-  console.log(plan);
-  console.log(req.params.id);
-  
-  if ( !plan.description || !plan.imgUrl || !plan.price || !plan.duration || !plan.days || !plan.startTime || !plan.endTime || !plan.startPosition || !plan.endPosition) {
-    const description = plan.description ? '' : 'description is required';
-    const imgUrl = plan.imgUrl ? '' : 'imgUrl is required';
-    const price = plan.price ? '' : 'Price is required';
-    const duration = plan.duration ? '' : 'Duration is required';
-    const days = plan.days ? '' : 'Days is required';
-    const startTime = plan.startTime ? '' : 'Start time is required';
-    const endTime = plan.endTime ? '' : 'End Time is required';
-    const startPosition = plan.startPosition ? '' : 'Start position is required';
-    const endPosition = plan.endPosition ? '' : 'End position is required';
+
+  if (!req.body.description || !req.body.imgUrl || !req.body.price || !req.body.duration || !req.body.days || !req.body.startTime || !req.body.endTime || !req.body.startPosition || !req.body.endPosition) {
+    const description = req.body.description ? '' : 'description is required';
+    const imgUrl = req.body.imgUrl ? '' : 'imgUrl is required';
+    const price = req.body.price ? '' : 'Price is required';
+    const duration = req.body.duration ? '' : 'Duration is required';
+    const days = req.body.days ? '' : 'Days is required';
+    const startTime = req.body.startTime ? '' : 'Start time is required';
+    const endTime = req.body.endTime ? '' : 'End Time is required';
+    const startPosition = req.body.startPosition ? '' : 'Start position is required';
+    const endPosition = req.body.endPosition ? '' : 'End position is required';
     Plan.findById(id)
-    .then((planB) => {
-      res.render('plans/new', {
-        error: {
-          description,
-          imgUrl,
-          price,
-          duration,
-          days,
-          startTime,
-          endTime,
-          startPosition,
-          endPosition
-        },
-        plan:planB
-      });
-    })
-    .catch(error => next(error));
-  }   
-  // const plan = new Plan(req.body);
+      .then((planB) => {
+        res.render('plans/new', {
+          error: {
+            description,
+            imgUrl,
+            price,
+            duration,
+            days,
+            startTime,
+            endTime,
+            startPosition,
+            endPosition
+          },
+          plan: planB
+        });
+      })
+      .catch(error => next(error));
+  } else {
+    // const plan = new Plan(req.body);
     Plan.findByIdAndUpdate(id, plan)
       .then(plan => {
         res.redirect('/plans');
       })
       .catch(error => next(error));
+  }
 };

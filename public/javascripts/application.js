@@ -8,7 +8,7 @@ function startMap() {
 $(document).ready(() => {
   $('#form-routes').on('submit', (event) => {
     event.preventDefault();
-    
+
     const terminalCoordinates = {
       terminal1: {
         lat: 40.462832,
@@ -27,54 +27,29 @@ $(document).ready(() => {
         lng: -3.593276
       },
     };
-    const numTerminal = $('#start').val();    
+    const numTerminal = $('#start').val();
     const travelMode = $('#travelMode').val();
-    const selectDay =$('#calendar').val();
-    if(selectDay){
+    const selectDay = $('#calendar').val();
+    if (selectDay) {
       mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase(), Date.parse(selectDay));
-    }else{
+    } else {
       mapsAPI.myRoute(terminalCoordinates[numTerminal], travelMode.toUpperCase());
     }
-    
+
   });
+
+  //de la vista search
   $('#form-search').on('submit', (event) => {
     event.preventDefault();
-    // let initHour=stringfyDateToHoursMin($('#initHour').val());
-    // let endHour=stringfyDateToHoursMin($('#endHour').val());
-    let initHour=new Date($('#initHour').val());
-    let endHour=new Date($('#endHour').val());
-
+    let initHour = new Date($('#initHour').val());
+    let endHour = new Date($('#endHour').val());
+   
     // console.log(initHour.getUTCDay());
     // console.log(endHour.getUTCDay());
-    
+
     mapsAPI.getDoSearch(initHour, endHour);
   });
 });
-//return an array the first position the hour the snd minutes
-function stringfyDateToHoursMin(myDate){
-  let date=new Date(myDate);
-  console.log(date.getUTCDay());
-  
-  let arrayDate=[];
-  arrayDate.push(date.getHours());
-  arrayDate.push(date.getMinutes());
-  console.log(`Hour = ${arrayDate}`);
-  return arrayDate;
-  // let date = new Date(myDate);
-  // let arrayDate;
-  // if (date.getMinutes() < 10) {
-    
-  //   arrayDate = date.getHours() + ':0' + date.getMinutes() + ':00';
-  // } else {
-  //   arrayDate = date.getHours() + ':' + date.getMinutes() + ':00';
-  // }
-  // console.log(`Hour = ${arrayDate}`);
-  // return arrayDate;
-}
-
-
-
-
 
 
 
